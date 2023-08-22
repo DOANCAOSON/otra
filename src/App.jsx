@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import "./App.css";
 
 function App() {
@@ -46,6 +47,40 @@ function App() {
         setCurrentIndex(index);
     };
 
+    const ref = useRef("");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isButtonDisabled, setButtonDisabled] = useState(false);
+    const images = [
+        "https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg",
+        "https://kiemtientuweb.com/ckfinder/userfiles/images/anh-gai-xinh/anh-gai-xinh-3.jpg",
+        "https://bloghomestay.vn/wp-content/uploads/2023/01/top-99-anh-gai-cute-de-thuong-dang-yeu-gay-thuong-nho_1.jpg",
+        "https://haycafe.vn/wp-content/uploads/2022/10/Hinh-anh-gai-xinh-Viet-Nam-cuoi-tuoi-tan.jpg",
+        "https://shoplove.vn/wp-content/uploads/2023/03/anh-gai-xinh-2k5.jpg",
+    ];
+
+    const handleSlide = (status) => {
+        if (!isButtonDisabled) {
+            ref.current = status;
+            if (status === "next") {
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+            }
+            if (status === "prev") {
+                setCurrentIndex(
+                    (prevIndex) =>
+                        (prevIndex - 1 + images.length) % images.length
+                );
+            }
+            setButtonDisabled(true);
+
+            setTimeout(() => {
+                setButtonDisabled(false);
+                return () => {
+                    setButtonDisabled(false);
+                };
+            }, 501);
+        }
+    };
+
     return (
         <>
             <div className="mb-[400px]">
@@ -72,20 +107,36 @@ function App() {
                 {/* slider */}
                 <div className="flex w-[100%] h-[620px] ">
                     <div className="w-[50%] h-[100%]  overflow-hidden">
-                        <div className="w-[100%] h-[100%] bg-gray-300">
-                            1
-                        </div>
-                        <div className="w-[100%] h-[100%] bg-gray-300">
-                            2
-                        </div>
-                        <div className="w-[100%] h-[100%] bg-gray-300">
-                            3
+                        <div
+                            style={{ zIndex: 2 }}
+                            className="w-[100%] h-[100%] bg-gray-300"
+                        >
+                            <motion.img
+                                key={currentIndex}
+                                initial={{
+                                    y: ref.current === "prev" ? -1000 : 1000,
+                                }} // Di chuyển ảnh ra khỏi màn hình
+                                animate={{ y: 0 }}
+                                transition={{ duration: 0.5 }}
+                                src={images[currentIndex]}
+                                alt={`Slide ${currentIndex + 1}`}
+                            />
                         </div>
                     </div>
-                    <div className="w-[50%] h-[100%] bg-orange-400">
-                        1
-                    </div>
+                    <div className="w-[50%] h-[100%] bg-orange-400">1</div>
                 </div>
+                <button
+                    className="text-boder mr-4"
+                    onClick={() => handleSlide("next")}
+                >
+                    Next Slide
+                </button>
+                <button
+                    className="text-boder"
+                    onClick={() => handleSlide("prev")}
+                >
+                    Prev Slide
+                </button>
                 {/* slider-item */}
                 <div className="flex w-[100%] h-[110vh] relative">
                     <div className="w-[50%] h-[100%] bg-zinc-500">
@@ -94,14 +145,10 @@ function App() {
                                 Câu chuyện thương hiệu
                             </div>
                             <div className="w-[410px] text-lg">
-                                Lorem ipsum dolor sit amet
-                                consectetur. Lobortis
-                                convallis volutpat proin
-                                nunc nullam ac enim. Lorem
-                                ipsum dolor sit amet
-                                consectetur. Lobortis
-                                convallis volutpat proin
-                                nunc nullam ac enim.
+                                Lorem ipsum dolor sit amet consectetur. Lobortis
+                                convallis volutpat proin nunc nullam ac enim.
+                                Lorem ipsum dolor sit amet consectetur. Lobortis
+                                convallis volutpat proin nunc nullam ac enim.
                             </div>
                         </div>
                     </div>
@@ -111,14 +158,10 @@ function App() {
                                 Câu chuyện thương hiệu
                             </div>
                             <div className="w-[410px] text-lg">
-                                Lorem ipsum dolor sit amet
-                                consectetur. Lobortis
-                                convallis volutpat proin
-                                nunc nullam ac enim. Lorem
-                                ipsum dolor sit amet
-                                consectetur. Lobortis
-                                convallis volutpat proin
-                                nunc nullam ac enim.
+                                Lorem ipsum dolor sit amet consectetur. Lobortis
+                                convallis volutpat proin nunc nullam ac enim.
+                                Lorem ipsum dolor sit amet consectetur. Lobortis
+                                convallis volutpat proin nunc nullam ac enim.
                             </div>
                         </div>
                     </div>
@@ -146,8 +189,7 @@ function App() {
                                 <div className="m-auto w-[100%]">
                                     <div className="mb-[67px]">
                                         <h1 className="text-4xl">
-                                            Các dòng sản
-                                            phẩm nổi bật
+                                            Các dòng sản phẩm nổi bật
                                         </h1>
                                     </div>
                                     <div className="flex justify-center flex-wrap gap-[31px] relative  ">
@@ -156,24 +198,12 @@ function App() {
                                         <div className="w-[500px] h-[278px] flex">
                                             <div className="w-[173px] mr-[20px] h-[100%] rotate-r5 bg-slate-400"></div>
                                             <div className="w-[319px]">
-                                                <div>
-                                                    Lorem
-                                                    ipsum
-                                                </div>
+                                                <div>Lorem ipsum</div>
                                                 <div className="text-left">
-                                                    Lorem
-                                                    ipsum
-                                                    dolor
-                                                    sit amet
-                                                    consectetur.
-                                                    Pharetra
-                                                    gravida
-                                                    in sit
-                                                    convallis
-                                                    neque
-                                                    tincidunt
-                                                    augue
-                                                    vitae
+                                                    Lorem ipsum dolor sit amet
+                                                    consectetur. Pharetra
+                                                    gravida in sit convallis
+                                                    neque tincidunt augue vitae
                                                     vitae.
                                                 </div>
                                             </div>
@@ -181,24 +211,12 @@ function App() {
                                         <div className="w-[500px] h-[278px] flex ">
                                             <div className="w-[173px] mr-[20px] h-[100%]  rotate-3 bg-slate-400"></div>
                                             <div className="w-[319px]">
-                                                <div>
-                                                    Lorem
-                                                    ipsum
-                                                </div>
+                                                <div>Lorem ipsum</div>
                                                 <div className="text-left">
-                                                    Lorem
-                                                    ipsum
-                                                    dolor
-                                                    sit amet
-                                                    consectetur.
-                                                    Pharetra
-                                                    gravida
-                                                    in sit
-                                                    convallis
-                                                    neque
-                                                    tincidunt
-                                                    augue
-                                                    vitae
+                                                    Lorem ipsum dolor sit amet
+                                                    consectetur. Pharetra
+                                                    gravida in sit convallis
+                                                    neque tincidunt augue vitae
                                                     vitae.
                                                 </div>
                                             </div>
@@ -206,24 +224,12 @@ function App() {
                                         <div className="w-[500px] h-[278px] flex">
                                             <div className="w-[173px] mr-[20px] h-[100%] rotate-3  bg-slate-400"></div>
                                             <div className="w-[319px]">
-                                                <div>
-                                                    Lorem
-                                                    ipsum
-                                                </div>
+                                                <div>Lorem ipsum</div>
                                                 <div className="text-left">
-                                                    Lorem
-                                                    ipsum
-                                                    dolor
-                                                    sit amet
-                                                    consectetur.
-                                                    Pharetra
-                                                    gravida
-                                                    in sit
-                                                    convallis
-                                                    neque
-                                                    tincidunt
-                                                    augue
-                                                    vitae
+                                                    Lorem ipsum dolor sit amet
+                                                    consectetur. Pharetra
+                                                    gravida in sit convallis
+                                                    neque tincidunt augue vitae
                                                     vitae.
                                                 </div>
                                             </div>
@@ -242,75 +248,49 @@ function App() {
                                 <div className="m-auto w-[100%]">
                                     <div className="mb-[67px]">
                                         <h1 className="text-4xl">
-                                            Hệ thống cửa
-                                            hàng
+                                            Hệ thống cửa hàng
                                         </h1>
                                     </div>
                                     <div className="flex justify-end gap-[13px] mb-[20px]">
-                                        {APIFake.map(
-                                            (
-                                                item,
-                                                index
-                                            ) => (
-                                                <div
-                                                    key={
-                                                        index
-                                                    }
-                                                    style={{
-                                                        backgroundColor:
-                                                            selectedItem ===
-                                                            index
-                                                                ? "#A82825"
-                                                                : "#FFFFFF",
-                                                        cursor: "pointer",
-                                                        color:
-                                                            selectedItem ===
-                                                            index
-                                                                ? "#FFFFFF"
-                                                                : "#888888",
-                                                        border:
-                                                            selectedItem ===
-                                                            index
-                                                                ? "none"
-                                                                : "1px solid #888888",
-                                                    }}
-                                                    className="px-[32px] py-[12px] rounded-full "
-                                                    onClick={() =>
-                                                        handleItemClick(
-                                                            index
-                                                        )
-                                                    }
-                                                >
-                                                    {
-                                                        item.btn
-                                                    }
-                                                </div>
-                                            )
-                                        )}
+                                        {APIFake.map((item, index) => (
+                                            <div
+                                                key={index}
+                                                style={{
+                                                    backgroundColor:
+                                                        selectedItem === index
+                                                            ? "#A82825"
+                                                            : "#FFFFFF",
+                                                    cursor: "pointer",
+                                                    color:
+                                                        selectedItem === index
+                                                            ? "#FFFFFF"
+                                                            : "#888888",
+                                                    border:
+                                                        selectedItem === index
+                                                            ? "none"
+                                                            : "1px solid #888888",
+                                                }}
+                                                className="px-[32px] py-[12px] rounded-full "
+                                                onClick={() =>
+                                                    handleItemClick(index)
+                                                }
+                                            >
+                                                {item.btn}
+                                            </div>
+                                        ))}
                                     </div>
                                     <div>
-                                        {itembtn.map(
-                                            (
-                                                item,
-                                                index
-                                            ) => (
-                                                <div className="flex gap-[46px]  mb-[21px]">
-                                                    <div className="w-[279px] h-[135px] bg-themtest"></div>
-                                                    <div className="text-left w-[100%] pl-[46px] pt-[23px] bg-themtest">
-                                                        <div>
-                                                            {
-                                                                item.title
-                                                            }
-                                                        </div>
-                                                        <div className="w-[422px]">
-                                                            {
-                                                                item.description
-                                                            }
-                                                        </div>
+                                        {itembtn.map((item, index) => (
+                                            <div className="flex gap-[46px]  mb-[21px]">
+                                                <div className="w-[279px] h-[135px] bg-themtest"></div>
+                                                <div className="text-left w-[100%] pl-[46px] pt-[23px] bg-themtest">
+                                                    <div>{item.title}</div>
+                                                    <div className="w-[422px]">
+                                                        {item.description}
                                                     </div>
                                                 </div>
-                                            )
-                                        )}
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
@@ -332,9 +312,7 @@ function App() {
                                     <div className="text-left ">
                                         Thời gian mở cửa
                                     </div>
-                                    <div className="text-left">
-                                        Liên hệ
-                                    </div>
+                                    <div className="text-left">Liên hệ</div>
                                 </div>
                             </div>
                         </div>
