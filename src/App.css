@@ -3,3 +3,28 @@
     text-align: center;
 }
 
+.skake-ant {
+    /* background-color: red !important; */
+    margin: auto;
+}
+.skake-animation__image--1 {
+    animation: rotation 4s infinite linear !important;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(3deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-3deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
