@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,8 +7,10 @@ import "./App.css";
 import img1 from "./images/slider1.png";
 import img2 from "./images/slider2.png";
 import img3 from "./images/slider3.png";
+import sliders1 from "./images/sldiers1.png";
+import sliders2 from "./images/sliders2.jpg";
+import sliders3 from "./images/sliders3.jpg";
 import Slidertexxt from "./component/Slidertexxt";
-
 function App() {
   const APIFake = [
     {
@@ -59,54 +60,59 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isButtonDisabled, setButtonDisabled] =
     useState(false);
+  // const images = [
+  //   {
+  //     id: "1",
+  //     img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+  //     title: "Auntie Anne's Season Menu 1",
+  //     name: "리치 티에이드",
+  //     description:
+  //       "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱 1",
+  //   },
+  //   {
+  //     id: "2",
+  //     img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+  //     title: "Auntie Anne's Season Menu 2",
+  //     name: "리치 티에이드",
+  //     description:
+  //       "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱2",
+  //   },
+
+  //   {
+  //     id: "3",
+  //     img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+  //     title: "Auntie Anne's Season Menu 3",
+  //     name: "리치 티에이드",
+  //     description:
+  //       "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱3",
+  //   },
+  // ];
+
   const images = [
     {
       id: "1",
-      img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+      img: sliders1,
       title: "Auntie Anne's Season Menu 1",
-      name: "리치 티에이드",
+      name: "리치 티에이",
       description:
         "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱 1",
     },
     {
       id: "2",
-      img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+      img: sliders2,
       title: "Auntie Anne's Season Menu 2",
-      name: "리치 티에이드",
+      name: "리치 티에드",
       description:
         "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱2",
     },
 
     {
       id: "3",
-      img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+      img: sliders3,
       title: "Auntie Anne's Season Menu 3",
       name: "리치 티에이드",
       description:
         "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱3",
-    },
-  ];
-  const apiSliderItems = [
-    {
-      id: "1",
-      title: "Lorem ipsum",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pharetra gravida in sit convallis neque tincidunt augue vitae vitae.",
-      img: "http://auntieannes.co.kr/wp-content/uploads/2022/04/%EB%A9%94%EC%9D%B8-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%88%84%EB%81%BC_%EB%A6%AC%EC%B9%98%ED%8B%B0%EC%97%90%EC%9D%B4%EB%93%9C.png",
-    },
-    {
-      id: "2",
-      title: "Lorem ipsum",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pharetra gravida in sit convallis neque tincidunt augue vitae vitae.",
-      img: "http://auntieannes.co.kr/wp-content/uploads/2022/04/%EB%A9%94%EC%9D%B8-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%88%84%EB%81%BC_%EB%A6%AC%EC%B9%98%ED%8B%B0%EC%97%90%EC%9D%B4%EB%93%9C.png",
-    },
-    {
-      id: "3",
-      title: "Lorem ipsum",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pharetra gravida in sit convallis neque tincidunt augue vitae vitae.",
-      img: "http://auntieannes.co.kr/wp-content/uploads/2022/04/%EB%A9%94%EC%9D%B8-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%88%84%EB%81%BC_%EB%A6%AC%EC%B9%98%ED%8B%B0%EC%97%90%EC%9D%B4%EB%93%9C.png",
     },
   ];
   const handleSlide = (status) => {
@@ -130,7 +136,7 @@ function App() {
         return () => {
           setButtonDisabled(false);
         };
-      }, 501);
+      }, 1001);
     }
   };
   // slider-item
@@ -164,7 +170,6 @@ function App() {
       img: img3,
     },
   ];
-
   const settings = {
     dots: false,
     infinite: true,
@@ -173,10 +178,9 @@ function App() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
     cssEase: "linear",
   };
-
   const songa = (list) => {
     const newArray = [];
     const chunkSize = 3;
@@ -186,7 +190,7 @@ function App() {
     }
     return newArray;
   };
-  //   slider
+
   return (
     <>
       <div className="">
@@ -210,7 +214,7 @@ function App() {
         </div>
         {/* slider */}
         <div className="flex w-[100%] h-[620px] ">
-          <div className="w-[50%] h-[100%]  overflow-hidden">
+          <div className="w-[50%] h-[100%]">
             <div
               style={{ zIndex: 2 }}
               className="w-[100%] h-[100%] bg-gray-300"
@@ -222,7 +226,7 @@ function App() {
                 }} // Di chuyển ảnh ra khỏi màn hình
                 animate={{ y: 0 }}
                 transition={{
-                  duration: 0.5,
+                  duration: 1,
                 }}
                 src={images[currentIndex].img}
                 alt={`Slide ${currentIndex + 1}`}
@@ -250,7 +254,7 @@ function App() {
           Prev Slide
         </button>
         {/* slider-item */}
-        <div className="flex w-[100%] h-[110vh] relative">
+        <div className="flex w-[100%] h-[739px] relative">
           <div className="w-[50%] h-[100%] bg-zinc-500">
             <div className="mt-[153px] ml-[120px] text-text-#0000 text-left">
               <div className="w-[226px] text-4xl">
@@ -279,7 +283,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="skake-ant w-[319px] h-[500px] flex justify-center  absolute top-[90px] left-[50%] translate-x-[-50%] translate-Y-[-90px] z-10 ">
+          <div className=" w-[319px] h-[500px] flex justify-center  absolute top-[90px] left-[50%] translate-x-[-50%] translate-Y-[-90px] z-10 ">
             <img
               className="skake-animation__image--1"
               src={img1}
