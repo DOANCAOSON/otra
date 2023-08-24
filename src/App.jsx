@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,6 +8,7 @@ import "./App.css";
 import img1 from "./images/slider1.png";
 import img2 from "./images/slider2.png";
 import img3 from "./images/slider3.png";
+import Slidertexxt from "./component/Slidertexxt";
 
 function App() {
   const APIFake = [
@@ -52,13 +54,37 @@ function App() {
     setCurrentIndex(index);
   };
   const ref = useRef("");
+  console.log(ref);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isButtonDisabled, setButtonDisabled] =
     useState(false);
   const images = [
-    "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
-    "https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png",
-    "https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png",
+    {
+      id: "1",
+      img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+      title: "Auntie Anne's Season Menu 1",
+      name: "리치 티에이드",
+      description:
+        "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱 1",
+    },
+    {
+      id: "2",
+      img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+      title: "Auntie Anne's Season Menu 2",
+      name: "리치 티에이드",
+      description:
+        "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱2",
+    },
+
+    {
+      id: "3",
+      img: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+      title: "Auntie Anne's Season Menu 3",
+      name: "리치 티에이드",
+      description:
+        "#콘 나왔~쵸 프레즐 #콘 나왔~쵸 스틱 #콘 나왔~쵸 크림치즈 스틱3",
+    },
   ];
   const apiSliderItems = [
     {
@@ -107,7 +133,6 @@ function App() {
       }, 501);
     }
   };
-
   // slider-item
   const data = [
     {
@@ -161,22 +186,26 @@ function App() {
     }
     return newArray;
   };
-
+  //   slider
   return (
     <>
       <div className="">
         {/* header */}
         <div className="bg-regal-blue w-[100%]">
-          <div className="flex justify-between items-center  text-center w-[998px] h-[61px] m-auto px-[30px]">
-            <div>Giới thiệu</div>
-            <div className="">Menu</div>
-            <div className="">Tin tức</div>
-            <div className="">
-              <div className="w-[61px] h-[61px] bg-black rounded-full "></div>
+          <div className="flex justify-between items-center  text-center w-[998px] h-[61px] m-auto ">
+            <div className="flex w-[50%] gap-[80px]">
+              <a>Giới thiệu</a>
+              <a className="">Menu</a>
+              <a className="">Tin tức</a>
             </div>
-            <div className="">Hình ảnh</div>
-            <div className="">Tuyển Dụng </div>
-            <div className=" ">Liên hệ</div>
+            <div className="flex justify-center w-[10%] ">
+              <div className="w-[60px] h-[60px] bg-black rounded-full "></div>
+            </div>
+            <div className="flex w-[50%] justify-end gap-[80px]">
+              <a className="">Hình ảnh</a>
+              <a className="">Tuyển Dụng </a>
+              <a className=" ">Liên hệ</a>
+            </div>
           </div>
         </div>
         {/* slider */}
@@ -195,13 +224,17 @@ function App() {
                 transition={{
                   duration: 0.5,
                 }}
-                src={images[currentIndex]}
+                src={images[currentIndex].img}
                 alt={`Slide ${currentIndex + 1}`}
               />
             </div>
           </div>
-          <div className="w-[50%] h-[100%] bg-orange-400">
-            1
+          <div className="w-[50%] h-[100%] relative bg-[#005ad5] ">
+            <Slidertexxt
+              images={images}
+              currentIndex={currentIndex}
+              ref1={ref}
+            />
           </div>
         </div>
         <button
@@ -249,7 +282,7 @@ function App() {
           <div className="skake-ant w-[319px] h-[500px] flex justify-center  absolute top-[90px] left-[50%] translate-x-[-50%] translate-Y-[-90px] z-10 ">
             <img
               className="skake-animation__image--1"
-              src="http://www.auntieannes.co.kr/wp-content/uploads/2020/03/product02_hover_1-min.png"
+              src={img1}
               alt=""
             />
           </div>
