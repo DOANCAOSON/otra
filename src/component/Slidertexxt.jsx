@@ -39,4 +39,5 @@ const Slidertexxt = ({ images, currentIndex, ref1 }) => {
   );
 };
 
+
 export default Slidertexxt;
