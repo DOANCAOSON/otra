@@ -3,11 +3,12 @@ const Slidertexxt = ({ images, currentIndex, ref1 }) => {
   return (
     <div className="text-left w-[433px] absolute top-20 left-20">
       <motion.div
+
         initial={{
-          y: ref1.current === "prev" ? -90 : -90,
+          y: ref1.current === "prev" ? -90 : -90, opacity: 0
         }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
         key={images[currentIndex].title}
         className="text-[28px]"
       >
@@ -15,10 +16,10 @@ const Slidertexxt = ({ images, currentIndex, ref1 }) => {
       </motion.div>
       <motion.div
         initial={{
-          y: ref1.current === "prev" ? -90 : -90,
+          y: ref1.current === "prev" ? -90 : -90, opacity: 0
         }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1, delay: 0.1, }}
         key={images[currentIndex].name}
         className="text-[56px] text-[#ffb500] w-[217px]"
       >
@@ -26,10 +27,10 @@ const Slidertexxt = ({ images, currentIndex, ref1 }) => {
       </motion.div>
       <motion.div
         initial={{
-          y: ref1.current === "prev" ? -90 : -90,
+          y: ref1.current === "prev" ? -90 : -90, opacity: 0
         }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.2, delay: 0.1 }}
         key={images[currentIndex].description}
         className="text-[18px] text-[#ffb500]"
       >

@@ -279,7 +279,7 @@ const BannerSlider = () =>
                 y: ref.current === "prev" ? -1000 : 1000,
               }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1 ,delay: 0.3}}
               src={images[currentIndex].img}
               alt={`Slide ${currentIndex + 1}`}
             />
