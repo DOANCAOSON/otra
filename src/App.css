@@ -2,11 +2,6 @@
   margin: 0 auto;
   text-align: center;
 }
-
-.skake-ant {
-  /* background-color: red !important; */
-  margin: auto;
-}
 .skake-animation__image--1 {
   animation: rotation 4s infinite linear !important;
 }
@@ -33,7 +28,6 @@
   font-family: sans-serif;
   text-align: center;
 }
-
 .slider-item > img {
   width: 100%;
   height: auto;
@@ -46,7 +40,6 @@
   flex-direction: column-reverse !important;
   justify-content: flex-end;
 }
-
 .slick-next,
 .slick-next:hover,
 .slick-next:focus,
@@ -58,16 +51,9 @@
   left: 0;
   z-index: 100;
 }
-
 .slick-prev:before,
 .slick-next:before {
   color: #000 !important;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .test {
   display: flex !important;
