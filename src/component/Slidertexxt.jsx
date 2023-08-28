@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { split } from "postcss/lib/list";
 const container = {
   visible: {
     transition: {
@@ -11,12 +10,19 @@ const item = {
   hidden: {
     y: "-100%",
     opacity: 0,
-    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
+    transition: {
+      ease: [0.455, 0.03, 0.515, 0.955],
+      duration: 0.85,
+    },
   },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
+    transition: {
+      ease: [0.455, 0.03, 0.515, 0.955],
+      duration: 0.75,
+      delay: 0.3,
+    },
   },
 };
 const Slidertexxt = ({ images, currentIndex, ref1 }) => {
@@ -26,7 +32,9 @@ const Slidertexxt = ({ images, currentIndex, ref1 }) => {
         className="App"
         initial="hidden"
         // animate="visible"
-        animate={images[currentIndex].title ? "visible" : "hidden"}
+        animate={
+          images[currentIndex].title ? "visible" : "hidden"
+        }
         variants={container}
       >
         <span
@@ -43,32 +51,34 @@ const Slidertexxt = ({ images, currentIndex, ref1 }) => {
             {images[currentIndex].title}
           </motion.div>
         </span>
-        {images[currentIndex].name.split(" ").map((word, index) => (
-          <span
-            style={{
-              overflow: "hidden",
-              display: "inline-block",
-              textWrap: "nowrap",
-            }}
-            key={word}
-          >
-            <motion.div
-              variants={item}
-              transition={{ duration: 1 , delay: 1.2}}
-              key={images[currentIndex].name}
-              className="text-[56px] text-[#ffb500] w-[217px] textw"
+        {images[currentIndex].name
+          .split(" ")
+          .map((word, index) => (
+            <span
+              style={{
+                overflow: "hidden",
+                display: "inline-block",
+                textWrap: "nowrap",
+              }}
+              key={word}
             >
-              {word}
-            </motion.div>
-          </span>
-        ))}
+              <motion.div
+                variants={item}
+                transition={{ duration: 1, delay: 1.2 }}
+                key={images[currentIndex].name}
+                className="text-[56px] text-[#ffb500] w-[217px] textw"
+              >
+                {word}
+              </motion.div>
+            </span>
+          ))}
         <motion.div
           initial={{
             y: ref1.current === "prev" ? -70 : -70,
             opacity: 0,
           }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1,  }}
+          transition={{ duration: 1 }}
           key={images[currentIndex].description}
           className="text-[18px] text-[#ffb500]"
         >

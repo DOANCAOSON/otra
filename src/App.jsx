@@ -105,7 +105,7 @@ function App() {
 
   return (
     <>
-      <div className="">
+      <div>
         {/* header */}
         <Header />
 
