@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 const container = {
   visible: {
     transition: {
@@ -28,6 +28,7 @@ const item = {
 const Slidertexxt = ({ images, currentIndex, ref1 }) => {
   return (
     <div className="text-left w-[433px] absolute top-20 left-20">
+      <AnimatePresence initial={false}>
       <motion.div
         className="App"
         initial="hidden"
@@ -85,6 +86,8 @@ const Slidertexxt = ({ images, currentIndex, ref1 }) => {
           {images[currentIndex].description}
         </motion.div>
       </motion.div>
+      </AnimatePresence>
+      
     </div>
   );
 };
