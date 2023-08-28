@@ -87,7 +87,7 @@ function App() {
     arrows: true,
     speed: 1000,
     slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToScroll: 0,
     autoplay: true,
     autoplaySpeed: 5000,
     cssEase: "linear",
