@@ -14,6 +14,7 @@ export default {
         "footer": "#575757",
         "color": "#FFFFFF",
         "footer-them": "#969696"
+        , "colorBlack": "#000"
 
       },
       rotate: {

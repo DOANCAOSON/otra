@@ -1,6 +1,7 @@
 #root {
   margin: 0 auto;
-  text-align: center;
+  color: #000;
+  overflow: hidden;
 }
 .skake-animation__image--1 {
   animation: rotation 4s infinite linear !important;
