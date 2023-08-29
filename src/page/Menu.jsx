@@ -1,13 +1,26 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 const Menu = () => {
   const [white, setWither] = useState(0);
-  const slder_wrapper = useRef();
+  const slder_wrapper = useRef(null);
+
+  const moveSlider = (direction) => {
+    const slider = slder_wrapper.current;
+    if (slider) {
+      const currentX = slider.scrollLeft;
+      const cardWidth = slider.offsetWidth;
+      const offset = direction === "left" ? -cardWidth : cardWidth;
+      slider.scrollTo({
+        left: currentX + offset,
+        behavior: "smooth",
+      });
+    }
+  };
 
   useEffect(() => {
     setWither(
-      slder_wrapper.current.scrollWidth -
-        slder_wrapper.current.offsetWidth
+      slder_wrapper.current.scrollWidth - slder_wrapper.current.offsetWidth
     );
   });
   return (
@@ -25,20 +38,20 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <div className="inline-flex gap-[16px]  mb-[72px] h-[375px] m-[auto] ">
-        <div className="ml-[50px] w-[308px] mt-[32px]">
+      <div className="flex w-[1200px] gap-[16px] h-[375px] m-[auto] ">
+        <div className="w-[308px] mt-[32px]">
           <div className="text-[36px] w-[308px] mb-[18px]">
             Sản phẩm <br />
             mới
           </div>
           <div>
             <span>
-              Lorem ipsum dolor sit amet consectetur. Platea
-              cras turpis libero turpis.
+              Lorem ipsum dolor sit amet consectetur. Platea cras turpis libero
+              turpis.
             </span>
           </div>
         </div>
-        <div className="container flex justify-center items-center w-[100%] flex-col ">
+        <div className="container flex justify-center items-center w-[100%] flex-col relative ">
           <motion.div
             ref={slder_wrapper}
             whileTap={{ cursor: "grabbing" }}
@@ -61,15 +74,23 @@ const Menu = () => {
           </motion.div>
         </div>
       </div>
+      <div className="w-[100%] mt-[14px]   mb-[72px]  flex justify-center">
+        <div className="slider-controls w-[1200px] flex justify-center">
+          <div className="w-[48%] ">
+          <button onClick={() => moveSlider('left')}>
+            <FiArrowLeft className="text-[40px] mr-[60px] transition  opacity-[.5]  hover:opacity-[1] ease-in" />
+          </button>
+          <button onClick={() => moveSlider('right')}>
+            <FiArrowRight className="text-[40px]  opacity-[.5]  transition  hover:opacity-[1] ease-in" />
+          </button>
+          </div>
+        </div>
+      </div>
       <div className="mb-[53px] flex justify-center ">
         <div className="w-[1200px]">
           <div className="mb-[53px]">
-            <div className="text-[36px] mb-[26px]">
-              Toàn bộ sản phẩm
-            </div>
-            <div className="text-[24px] mb-[26px]">
-              CÀ PHÊ
-            </div>
+            <div className="text-[36px] mb-[26px]">Toàn bộ sản phẩm</div>
+            <div className="text-[24px] mb-[26px]">CÀ PHÊ</div>
             <div className="grid grid-cols-3 gap-[30px]">
               <div className="bg-[#D9D9D9] h-[380px]"></div>
               <div className="bg-[#D9D9D9] h-[380px]"></div>
@@ -77,9 +98,7 @@ const Menu = () => {
             </div>
           </div>
           <div className="mb-[53px]">
-            <div className="text-[24px] mb-[26px] ">
-              Ô long Matcha
-            </div>
+            <div className="text-[24px] mb-[26px] ">Ô long Matcha</div>
             <div className="grid grid-cols-3 gap-[30px]">
               <div className="bg-[#D9D9D9] h-[380px]"></div>
               <div className="bg-[#D9D9D9] h-[380px]"></div>
@@ -87,9 +106,7 @@ const Menu = () => {
             </div>
           </div>
           <div className="mb-[53px]">
-            <div className="text-[24px] mb-[26px] ">
-              Syphon
-            </div>
+            <div className="text-[24px] mb-[26px] ">Syphon</div>
             <div className="grid grid-cols-3 gap-[30px]">
               <div className="bg-[#D9D9D9] h-[380px]"></div>
               <div className="bg-[#D9D9D9] h-[380px]"></div>
@@ -97,9 +114,7 @@ const Menu = () => {
             </div>
           </div>
           <div className="mb-[53px]">
-            <div className="text-[24px] mb-[26px] ">
-              French Press
-            </div>
+            <div className="text-[24px] mb-[26px] ">French Press</div>
             <div className="grid grid-cols-3 gap-[30px]">
               <div className="bg-[#D9D9D9] h-[380px]"></div>
               <div className="bg-[#D9D9D9] h-[380px]"></div>
@@ -107,9 +122,7 @@ const Menu = () => {
             </div>
           </div>
           <div className="mb-[53px]">
-            <div className="text-[24px] mb-[26px] ">
-              Moka Pot
-            </div>
+            <div className="text-[24px] mb-[26px] ">Moka Pot</div>
             <div className="grid grid-cols-3 gap-[30px]">
               <div className="bg-[#D9D9D9] h-[380px]"></div>
               <div className="bg-[#D9D9D9] h-[380px]"></div>
@@ -117,9 +130,7 @@ const Menu = () => {
             </div>
           </div>
           <div className="mb-[53px]">
-            <div className="text-[24px] mb-[26px] ">
-              Nitro Cold Brew
-            </div>
+            <div className="text-[24px] mb-[26px] ">Nitro Cold Brew</div>
             <div className="grid grid-cols-3 gap-[30px]">
               <div className="bg-[#D9D9D9] h-[380px]"></div>
               <div className="bg-[#D9D9D9] h-[380px]"></div>
