@@ -1,67 +1,15 @@
-const NEWPRODUCT = [
-  {
-    img: "duong_dan_anh1.jpg",
-    title: "Sản phẩm 1",
-    price: 29.99,
-    description: "Mô tả cho sản phẩm 1.",
-  },
-  {
-    img: "duong_dan_anh2.jpg",
-    title: "Sản phẩm 2",
-    price: 39.99,
-    description: "Mô tả cho sản phẩm 2.",
-  },
-  {
-    img: "duong_dan_anh3.jpg",
-    title: "Sản phẩm 3",
-    price: 49.99,
-    description: "Mô tả cho sản phẩm 3.",
-  },
-  {
-    img: "duong_dan_anh4.jpg",
-    title: "Sản phẩm 4",
-    price: 19.99,
-    description: "Mô tả cho sản phẩm 4.",
-  },
-  {
-    img: "duong_dan_anh5.jpg",
-    title: "Sản phẩm 5",
-    price: 59.99,
-    description: "Mô tả cho sản phẩm 5.",
-  },
-  {
-    img: "duong_dan_anh6.jpg",
-    title: "Sản phẩm 6",
-    price: 69.99,
-    description: "Mô tả cho sản phẩm 6.",
-  },
-  {
-    img: "duong_dan_anh7.jpg",
-    title: "Sản phẩm 7",
-    price: 79.99,
-    description: "Mô tả cho sản phẩm 7.",
-  },
-  {
-    img: "duong_dan_anh8.jpg",
-    title: "Sản phẩm 8",
-    price: 89.99,
-    description: "Mô tả cho sản phẩm 8.",
-  },
-  {
-    img: "duong_dan_anh9.jpg",
-    title: "Sản phẩm 9",
-    price: 99.99,
-    description: "Mô tả cho sản phẩm 9.",
-  },
-  {
-    img: "duong_dan_anh10.jpg",
-    title: "Sản phẩm 10",
-    price: 109.99,
-    description: "Mô tả cho sản phẩm 10.",
-  },
-];
-
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 const Menu = () => {
+  const [white, setWither] = useState(0);
+  const slder_wrapper = useRef();
+
+  useEffect(() => {
+    setWither(
+      slder_wrapper.current.scrollWidth -
+        slder_wrapper.current.offsetWidth
+    );
+  });
   return (
     <div className="mb-[273px]">
       <div className="mt-[122px] mb-[61px] flex justify-center ">
@@ -77,9 +25,9 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <div className="w-[1200px] mb-[72px] h-[375px] flex gap-[16px] m-[auto] ">
-        <div className="w-[308px] mt-[32px]">
-          <div className="text-[36px] w-[238px] mb-[18px]">
+      <div className="inline-flex gap-[16px]  mb-[72px] h-[375px] m-[auto] ">
+        <div className="ml-[50px] w-[308px] mt-[32px]">
+          <div className="text-[36px] w-[308px] mb-[18px]">
             Sản phẩm <br />
             mới
           </div>
@@ -90,11 +38,27 @@ const Menu = () => {
             </span>
           </div>
         </div>
-        <div className="h-[380px] flex gap-[14px]">
-          <div className="bg-[#D9D9D9] w-[282px] h-[380px]"></div>
-          <div className="bg-[#D9D9D9] w-[282px] h-[380px]"></div>
-          <div className="bg-[#D9D9D9] w-[282px] h-[380px]"></div>
-          <div className="bg-[#D9D9D9] w-[282px] h-[380px]"></div>
+        <div className="container flex justify-center items-center w-[100%] flex-col ">
+          <motion.div
+            ref={slder_wrapper}
+            whileTap={{ cursor: "grabbing" }}
+            className="slider_wraper w-[100%] overflow-hidden flex "
+          >
+            <motion.div
+              drag="x"
+              dragConstraints={{ right: 0, left: -white }}
+              className="inner_crousel inline-flex gap-[14px]"
+            >
+              <div className="card w-[282px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       <div className="mb-[53px] flex justify-center ">
