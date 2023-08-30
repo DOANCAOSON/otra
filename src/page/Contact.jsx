@@ -72,6 +72,7 @@ const Contact = () => {
         style={{
           backgroundImage:
             "url(https://phela.vn/wp-content/uploads/2022/01/banner-1.jpg)",
+          backgroundAttachment: "fixed",
         }}
         className="w-[100%] h-[339px] flex justify-center item-center opacity-[0.9] bg-no-repeat bg-cover bg-center"
       ></div>
