@@ -10,6 +10,7 @@ import {
   Route,
 } from "react-router-dom";
 import Menu from "./page/Menu";
+import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
   // const images = [
@@ -45,6 +46,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route

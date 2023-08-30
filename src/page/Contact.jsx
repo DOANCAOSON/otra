@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import ContactBaner from "../component/ContactBaner";
 import Banner from "../component/contact/Banner";
+import contactimg from "../images/contact.jpg";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -41,10 +42,7 @@ const Contact = () => {
             </div>
             <div className="flex justify-between flex-col ">
               <div className="w-[585px] h-[824px]">
-                <img
-                  src="http://auntieannes.co.kr/wp-content/uploads/2019/11/story_img02-1.jpg"
-                  alt=""
-                />
+                <img src={contactimg} alt={contactimg} />
               </div>
               <div
                 style={{
