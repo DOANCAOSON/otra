@@ -76,18 +76,6 @@ const Menu = () => {
           </motion.div>
         </div>
       </div>
-      {/* <div className="w-[100%] mt-[14px]   mb-[72px]  flex justify-center">
-        <div className="slider-controls w-[1200px] flex justify-center">
-          <div className="w-[48%] ">
-            <button onClick={() => moveSlider("left")}>
-              <FiArrowLeft className="text-[40px] mr-[60px] transition  opacity-[.5]  hover:opacity-[1] ease-in" />
-            </button>
-            <button onClick={() => moveSlider("right")}>
-              <FiArrowRight className="text-[40px]  opacity-[.5]  transition  hover:opacity-[1] ease-in" />
-            </button>
-          </div>
-        </div>
-      </div> */}
       <div className="mb-[53px] flex justify-center ">
         <div className="w-[1200px]">
           <div className="mb-[53px]">

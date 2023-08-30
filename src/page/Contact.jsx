@@ -50,7 +50,7 @@ const Contact = () => {
                 style={{
                   transform: isInView
                     ? "none"
-                    : "translateY(500px)",
+                    : "translateY(200px)",
                   opacity: isInView ? 1 : 0,
                   transition:
                     "all 1.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
