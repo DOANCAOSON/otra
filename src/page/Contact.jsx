@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useInView } from "framer-motion";
-import BannerSlider from "../component/BannerSlider";
 import ContactBaner from "../component/ContactBaner";
+import Banner from "../component/contact/Banner";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -9,25 +9,7 @@ const Contact = () => {
 
   return (
     <div className="w-[100%]">
-      <div
-        style={{
-          backgroundImage:
-            "url(https://phela.vn/wp-content/uploads/2022/01/banner-1.jpg)",
-        }}
-        className="w-[100%] h-[339px] flex justify-center item-center opacity-[0.9] bg-no-repeat bg-cover bg-center"
-      >
-        <div className="m-[auto]">
-          <div className="flex items-center w-[511px]">
-            <div className="mr-[6px] text-[16px] text-colorBlack">
-              Lorem ipsum
-            </div>
-            <div className="h-[1px] w-[80%] bg-[#000]"></div>
-          </div>
-          <div className="text-[64px] text-colorBlack opacity-[1]">
-            Một chút về Ô Trà
-          </div>
-        </div>
-      </div>
+      <Banner />
       <div className="mt-[86px] mb-[59px] flex justify-center">
         <div className="w-[1200px]">
           <div className="flex w-[100%] justify-between">
@@ -93,7 +75,6 @@ const Contact = () => {
         }}
         className="w-[100%] h-[339px] flex justify-center item-center opacity-[0.9] bg-no-repeat bg-cover bg-center"
       ></div>
-
       <ContactBaner />
     </div>
   );

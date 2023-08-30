@@ -13,8 +13,9 @@ export default {
         "themtest": "#F4F4F4",
         "footer": "#575757",
         "color": "#FFFFFF",
-        "footer-them": "#969696"
-        , "colorBlack": "#000"
+        "footer-them": "#969696",
+        "colorBlack": "#000",
+        "backgroundopacity": "rgba(0,0,0,0.5)"
 
       },
       rotate: {
