@@ -64,14 +64,14 @@ const Menu = () => {
               dragConstraints={{ right: 0, left: -white }}
               className="inner_crousel inline-flex gap-[14px]"
             >
-              <div className="card w-[282px] h-[375px] bg-[#D9D9D9] "></div>
-              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
-              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
-              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
-              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
-              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
-              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
-              <div className="card w-[300px] h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
+              <div className="card  w-[282px]  h-[375px] bg-[#D9D9D9] "></div>
             </motion.div>
           </motion.div>
         </div>

@@ -162,7 +162,6 @@ const Home = () => {
           handleItemClick={handleItemClick}
         />
         {/* footer */}
-        <Footer />
       </div>
     </>
   );
