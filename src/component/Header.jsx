@@ -6,10 +6,8 @@ const Header = () => {
       <div className="flex justify-between items-center  text-center w-[998px] h-[61px] m-auto ">
         <div className="flex w-[50%] gap-[80px]">
           <Link to="/contact">Giới thiệu</Link>
-          <Link to="/menu" className="">
-            Menu
-          </Link>
-          <a className="">Tin tức</a>
+          <Link to="/menu">Menu</Link>
+          <Link to="/news">Tin tức</Link>
         </div>
         <div className="flex justify-center w-[10%] ">
           <Link to="/">
@@ -18,7 +16,9 @@ const Header = () => {
         </div>
         <div className="flex w-[50%] justify-end gap-[80px]">
           <a className="">Hình ảnh</a>
-          <a className="">Tuyển Dụng </a>
+          <Link to="/hiring" className="">
+            Tuyển Dụng
+          </Link>
           <a className=" ">Liên hệ</a>
         </div>
       </div>

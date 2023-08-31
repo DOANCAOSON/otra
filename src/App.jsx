@@ -11,6 +11,8 @@ import {
 } from "react-router-dom";
 import Menu from "./page/Menu";
 import ScrollToTop from "./component/ScrollToTop";
+import News from "./page/News";
+import Hiring from "./page/Hiring";
 
 function App() {
   // const images = [
@@ -55,6 +57,8 @@ function App() {
           element={<Contact />}
         />
         <Route exact path="/menu" element={<Menu />} />
+        <Route exact path="/news" element={<News />} />
+        <Route exact path="/hiring" element={<Hiring />} />
       </Routes>
       <Footer />
     </BrowserRouter>
