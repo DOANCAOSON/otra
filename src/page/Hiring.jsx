@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const items = [
   {
     img: "http://auntieannes.co.kr/wp-content/uploads/2019/10/main-sec04_img.jpg",
@@ -64,7 +66,8 @@ const Hiring = () => {
           <div className="grid grid-cols-3 gap-x-[30px] gap-y-[26px] mb-[228px]">
             {items.map((item, index) => {
               return (
-                <div
+                <Link
+                  to="#"
                   key={index}
                   className="h-[466px] w-[380px] bg-[#eee] "
                 >
@@ -84,7 +87,7 @@ const Hiring = () => {
                   <div className="px-[20px]  h-[118px] w-[100%] bg-[#D9D9D9] ">
                     {item.title}
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

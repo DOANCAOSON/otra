@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const items = [
   {
     img: "http://auntieannes.co.kr/wp-content/uploads/2023/08/%EB%8C%80%EC%A7%80-341-705x453.png",
@@ -76,7 +78,8 @@ const News = () => {
           <div className="grid grid-cols-3 gap-x-[30px] gap-y-[26px] mb-[228px]">
             {items.map((item, index) => {
               return (
-                <div
+                <Link
+                  to="#"
                   key={index}
                   className="h-[466px] w-[380px] bg-[#eee] "
                 >
@@ -94,7 +97,7 @@ const News = () => {
                   <div className="px-[20px]  h-[118px] w-[100%] bg-[#D9D9D9] ">
                     {item.title}
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
